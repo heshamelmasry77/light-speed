@@ -9,7 +9,7 @@
     "lint": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky install",
+    "prepare": "husky",
     "test": "npx vitest run"
   },
   "dependencies": {
@@ -49,8 +49,11 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
+      "echo '🚀 Running ESLint fixes...'",
       "eslint --fix",
-      "prettier --write"
+      "echo '✨ Applying Prettier formatting...'",
+      "prettier --write",
+      "echo '✅ Formatting and linting completed!'"
     ]
   }
 }
