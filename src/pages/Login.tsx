@@ -18,13 +18,11 @@ const LoginPage: React.FC = () => {
 
   const onFinish: FormProps<LoginFormValues>["onFinish"] = async values => {
     try {
-      console.log("Login values:", values);
       const res = await login({ user_id: values.user_id, password: values.password });
       dispatch(setCredentials({ token: res.access, userId: values.user_id }));
       message.success("Logged in successfully");
       navigate("/dashboard");
-    } catch (err) {
-      console.log(err);
+    } catch {
       message.error("Login failed: Invalid credentials");
     }
   };
