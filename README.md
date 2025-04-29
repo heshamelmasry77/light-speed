@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ⚡⚡ Light Speed ⚡⚡
 
-Currently, two official plugins are available:
+Light Speed is a modern frontend built with React + Vite to interface with the LARVIS backend service, designed to help monitor Martian ore site acquisitions via a clean and responsive UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🔧 Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React + Vite** (TypeScript)
+- **Ant Design** – UI components
+- **Tailwind CSS** – Utility styling
+- **Redux Toolkit** – Global state management
+- **Axios** – HTTP client with interceptor
+- **Vitest + Testing Library** – Unit testing
+- **Prettier + ESLint + Husky** – Code quality and formatting
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+---
+
+## 📁 Project Structure
+
+```bash
+src/
+│
+├── api/              # Axios instance + typed API wrappers
+│   ├── axios.ts
+│   ├── auth.ts
+│
+├── store/            # Redux store setup
+│   ├── index.ts
+│   ├── authSlice.ts
+│
+├── components/       # UI components (to come)
+├── pages/            # App pages (Login, Dashboard, etc.)
+├── test/             # Global test setup (jest-dom)
+├── App.tsx
+├── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+## 🔑 API Usage
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
+You can test the backend using the Postman collection here:  
+👉 [LARVIS Postman Docs](https://documenter.getpostman.com/view/40741497/2sB2j3BBor)
+
+Local server runs at: `http://localhost:8080`
+
+### Default credentials:
+
+- `alice / 1234`
+- `bob / 1234`
+- `charlie / 1234`
+
+---
+
+## ✅ Features implemented so far
+
+- [x] **Axios instance** with auth token interceptor
+- [x] **Redux `authSlice`** to store token + userId
+- [x] **Login API wrapper** (`POST /token`)
+- [x] **Unit tests** for Axios interceptor
+- [x] **Local dev with Docker** using provided `larvis` backend
+- [x] **Prettier + ESLint + Husky** configured with pre-commit hooks
+
+---
+
+## 🧪 Testing
+
+Run tests with:
+
+```bash
+npm run test
 ```
+
+Unit tests are written using Vitest and include:
+
+- Axios interceptor – verifies Authorization header is correctly set / skipped
+
+---
+
+## ▶️ Running the project
+
+Start backend (`larvis`):
+
+```bash
+docker build -t larvis .
+docker run -p 8080:8080 larvis
+```
+
+Start frontend:
+
+```bash
+npm install
+npm run dev
+```
+
+---
