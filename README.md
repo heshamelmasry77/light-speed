@@ -1,4 +1,3 @@
-
 # ⚡⚡ Light Speed ⚡⚡
 
 Light Speed is a modern frontend built with React + Vite to interface with the LARVIS backend service, designed to help monitor Martian ore site acquisitions via a clean and responsive UI.
@@ -67,11 +66,11 @@ Local server runs at: `http://localhost:8080`
 
 ## 🧪 Testing
 
-| Tool | Purpose |
-|------|---------|
-| **Vitest** | Test runner (fast, Vite-native, like Jest) |
-| **@testing-library/react** | For component tests |
-| **@testing-library/jest-dom** | Matchers for DOM assertions |
+| Tool                          | Purpose                                    |
+| ----------------------------- | ------------------------------------------ |
+| **Vitest**                    | Test runner (fast, Vite-native, like Jest) |
+| **@testing-library/react**    | For component tests                        |
+| **@testing-library/jest-dom** | Matchers for DOM assertions                |
 
 Run tests with:
 
