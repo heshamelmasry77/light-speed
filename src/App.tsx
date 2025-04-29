@@ -1,9 +1,15 @@
-function App() {
+import { Route, Routes, Navigate } from "react-router-dom";
+
+import LoginPage from "./pages/Login";
+
+const App = () => {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline text-amber-400">Hello Light Speed</h1>
-    </>
+    <Routes>
+      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="*" element={<div>404 - Not Found</div>} />
+    </Routes>
   );
-}
+};
 
 export default App;
