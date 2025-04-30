@@ -8,6 +8,7 @@ Light Speed is a modern frontend built with React + Vite to interface with the L
 
 - **React + Vite** (TypeScript)
 - **Ant Design** – UI components
+- Ant Design Plots – Powerful charts and data visualization
 - **Tailwind CSS** – Utility styling
 - **Redux Toolkit** – Global state management
 - **Axios** – HTTP client with interceptor
@@ -21,17 +22,27 @@ Light Speed is a modern frontend built with React + Vite to interface with the L
 ```bash
 src/
 │
-├── api/              # Axios instance + typed API wrappers
+├── api/              # Axios instance and API wrappers
 │   ├── axios.ts
 │   ├── auth.ts
+│   ├── acquisitions.ts
 │
-├── store/            # Redux store setup
+├── store/            # Redux store and slices
 │   ├── index.ts
 │   ├── authSlice.ts
+│   ├── acquisitionsSlice.ts
 │
-├── components/       # UI components (to come)
-├── pages/            # App pages (Login, Dashboard, etc.)
-├── test/             # Global test setup (jest-dom)
+├── components/       # Reusable UI components
+│   ├── ProtectedRoute.tsx
+│   ├── MainLayout.tsx
+│   ├── AcquisitionsChart.tsx
+│
+├── pages/            # Application pages
+│   ├── Login.tsx
+│   ├── Dashboard.tsx
+│   ├── Users.tsx (coming next)
+│
+├── test/             # Global testing setup (jest-dom)
 ├── App.tsx
 ├── main.tsx
 ```
@@ -55,12 +66,29 @@ Local server runs at: `http://localhost:8080`
 
 ## ✅ Features implemented so far
 
-- [x] **Axios instance** with auth token interceptor
-- [x] **Redux `authSlice`** to store token + userId
-- [x] **Login API wrapper** (`POST /token`)
-- [x] **Unit tests** for Axios interceptor
-- [x] **Local dev with Docker** using provided `larvis` backend
-- [x] **Prettier + ESLint + Husky** configured with pre-commit hooks
+Here's the complete and final **✅ Features Implemented** section from your README, fully cleaned up with no duplicates:
+
+---
+
+## ✅ Features Implemented
+
+- [x] Axios instance with bearer token interceptor
+- [x] Login API wrapper (`POST /token`)
+- [x] Redux `authSlice` to manage login state and access tokens
+- [x] Login form with Ant Design and error handling
+- [x] Protected routing using React Router and Redux auth state
+- [x] Dashboard page with ore acquisition data summary
+- [x] Custom bar chart with dynamic colors using Ant Design Plots
+- [x] Aggregation of acquisition data by day
+- [x] API wrapper for `/acquisitions` endpoint
+- [x] Manual Redux setup for acquisitions state
+- [x] Axios interceptor unit test with Vitest
+- [x] Pre-commit linting with ESLint, Prettier, and Husky
+- [x] Local dev environment with Docker using the provided LARVIS backend
+
+---
+
+Let me know if you want to add badges, images/screenshots, or deploy instructions next!
 
 ---
 
