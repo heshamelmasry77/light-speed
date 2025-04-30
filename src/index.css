@@ -1,1 +1,31 @@
 @import "tailwindcss";
+@theme {
+  --color-brand-primary: #7c3aed;
+  --color-brand-primary-light: #8b5cf6;
+  --color-brand-primary-dark: #6d28d9;
+  --color-brand-accent: #22d3ee;
+  --color-brand-alert: #d946ef;
+  --color-brand-warning: #facc15;
+}
+:root {
+  --brand-primary: #7c3aed;
+  --brand-primary-light: #e9e3fb;
+  --brand-primary-dark: #6d28d9;
+  --brand-accent: #22d3ee;
+  --brand-danger: #d946ef;
+  --brand-warning: #facc15;
+
+  --text-color: #333;
+  --background-color: #fff;
+}
+
+/* Style the selected menu item */
+.ant-menu-item-selected {
+  background-color: var(--brand-primary) !important;
+  color: white !important;
+}
+
+/* Optionally, highlight the icon as well */
+.ant-menu-item-selected .anticon {
+  color: white !important;
+}

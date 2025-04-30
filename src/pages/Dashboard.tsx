@@ -33,19 +33,18 @@ const Dashboard = () => {
 
   return (
     <div className="p-6">
-      <Title level={2}>Welcome back, {userId} 👋</Title>
-
+      <Title level={2}>Good to see you again, {userId}! Let's scan the Martian surface. 🔭</Title>
       {loading ? (
         <Spin />
       ) : (
         <>
-          <Row gutter={16} className="mt-8">
-            <Col span={8}>
+          <Row gutter={[16, 16]} className="mt-8">
+            <Col xs={24} sm={12} lg={8}>
               <Card title="Total Acquisitions">
                 <Title level={3}>{data.length}</Title>
               </Card>
             </Col>
-            <Col span={8}>
+            <Col xs={24} sm={12} lg={8}>
               <Card title="Total Ore Sites">
                 <Title level={3}>{totalSites}</Title>
               </Card>

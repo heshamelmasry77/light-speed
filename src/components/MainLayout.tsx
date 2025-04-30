@@ -3,16 +3,20 @@ import { Link, useNavigate, Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { DashboardOutlined, UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
+import { useState } from "react";
 
 import { logout } from "../store/authSlice";
+import AppHeader from "./AppHeader.tsx";
 
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 
 const MainLayout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [collapsed, setCollapsed] = useState(false);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -46,18 +50,30 @@ const MainLayout = () => {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider className={"p-4"}>
+      <Sider
+        breakpoint="md"
+        collapsedWidth={0}
+        collapsible
+        collapsed={collapsed}
+        onCollapse={setCollapsed}
+        className="p-4"
+      >
         <Menu
-          theme="dark"
           mode="inline"
           defaultSelectedKeys={["dashboard"]}
           items={items}
-          style={{ height: "100%", borderRight: 0, display: "flex", flexDirection: "column" }}
+          theme="dark"
+          style={{
+            height: "100%",
+            borderRight: 0,
+            color: "#fff",
+          }}
         />
       </Sider>
+
       <Layout>
-        <Header style={{ background: "#fff", padding: "0 16px" }}>Lighting Speed</Header>
-        <Content style={{ margin: "16px" }}>
+        <AppHeader />
+        <Content className={"m-4"}>
           <Outlet />
         </Content>
       </Layout>
