@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Button, Form, Input, message, Typography } from "antd";
 import type { FormProps } from "antd";
 import { useSelector } from "react-redux";
+import { ThunderboltOutlined, RocketOutlined } from "@ant-design/icons";
 
 import { login } from "../api/auth";
 import { setCredentials } from "../store/authSlice";
@@ -40,10 +41,15 @@ const LoginPage: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4">
       <div className="text-center mb-8">
-        <Title level={1}>Light Speed</Title>
-        <Paragraph type="secondary" className="max-w-md mx-auto">
-          Welcome to your mission dashboard. Log in to manage ore acquisition reports and keep Earth
-          updated on the riches of Mars.
+        <Title level={1} className="flex items-center justify-center gap-3 text-brand-primary">
+          <RocketOutlined />
+          Light Speed
+          <ThunderboltOutlined />
+        </Title>
+
+        <Paragraph type="secondary" className="max-w-md mx-auto mt-4">
+          🚀 Welcome to your mission dashboard. Log in to manage ore acquisition reports and keep
+          Earth updated on the riches of Mars. 🪐
         </Paragraph>
       </div>
 
@@ -72,7 +78,12 @@ const LoginPage: React.FC = () => {
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
-          <Button type="primary" htmlType="submit" block>
+          <Button
+            type="primary"
+            htmlType="submit"
+            block
+            style={{ background: "var(--brand-primary)" }}
+          >
             Login
           </Button>
         </Form.Item>
