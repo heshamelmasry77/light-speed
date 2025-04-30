@@ -26,7 +26,7 @@ const Dashboard = () => {
       }
     };
 
-    loadData().then(() => {});
+    loadData();
   }, [dispatch]);
 
   const totalSites = data.reduce((sum, a) => sum + a.ore_sites, 0);
