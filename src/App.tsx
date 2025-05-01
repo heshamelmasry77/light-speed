@@ -7,6 +7,7 @@ import LoginPage from "./pages/Login";
 import DashboardPage from "./pages/Dashboard";
 import UsersPage from "./pages/Users";
 import UserDetailPage from "./pages/UserDetail.tsx";
+import AcquisitionsPage from "./pages/Acquisitions.tsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 import MainLayout from "./components/MainLayout";
 import { RootState } from "./store";
@@ -40,6 +41,7 @@ const App = () => {
           }
         >
           <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="acquisitions" element={<AcquisitionsPage />} />
           <Route path="users" element={<UsersPage />} />
           <Route path="users/:id" element={<UserDetailPage />} />
           <Route index element={<Navigate to="/dashboard" />} />
