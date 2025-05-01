@@ -53,6 +53,11 @@ src/
 
 ---
 
+## 🔗 Live Deployment
+
+- 🔥 Frontend: [https://light-speed-b67diijas-hesham-masrys-projects.vercel.app](https://light-speed-b67diijas-hesham-masrys-projects.vercel.app)
+- 🌐 Backend API: [https://light-speed-be.onrender.com](https://light-speed-be.onrender.com)
+
 ## 🔑 API Usage
 
 You can test the backend using the Postman collection here:  
@@ -69,6 +74,14 @@ Local server runs at: `http://localhost:8080`
 ---
 
 ## ✅ Features Implemented
+
+Below is a breakdown of the main dashboard visualizations:
+
+- 📅 **Weekly Average Ore Sites** – Shows the average number of ore sites detected per acquisition grouped by week. Helps track long-term mission trends.
+- 📊 **Ore Site Count Distribution** – A histogram showing how many acquisitions fall into site-count ranges (e.g. 0–4, 5–9). Helps visualize how common low- vs. high-yield scans are.
+- 📈 **Cumulative Ore Sites** – Displays the running total of ore sites over time.
+
+Other implemented features:
 
 - [x] Axios instance with bearer token interceptor
 - [x] Login API wrapper (`POST /token`)
@@ -87,12 +100,6 @@ Local server runs at: `http://localhost:8080`
 - [x] Axios interceptor unit test with Vitest
 - [x] Pre-commit linting with ESLint, Prettier, and Husky
 - [x] Local dev environment with Docker using the provided LARVIS backend
-
-Below is a breakdown of the main dashboard visualizations:
-
-📅 Weekly Average Ore Sites – Shows the average number of ore sites detected per acquisition grouped by week. Helps track long-term mission trends. (WeeklySitesChart)
-
-📊 Ore Site Count Distribution – A histogram showing how many acquisitions fall into site-count ranges (e.g. 0–4, 5–9). Helps visualize how common low- vs. high-yield scans are. (SiteDistributionChart)
 
 ---
 
@@ -136,10 +143,9 @@ npm run dev
 
 ## 📌 Roadmap and Next Steps
 
-- [ ] Add animations or transition polish
-- [ ] Improve chart UX with trend lines or filters
-- [ ] Add dark mode toggle using CSS variables
 - [ ] Add more unit tests for components (login, profile, users)
-- [ ] Deploy to Vercel and link in README
+- [ ] Add screenshots or GIF previews of key features
+- [ ] Add API improvement suggestions section in README
 
 ---
+
