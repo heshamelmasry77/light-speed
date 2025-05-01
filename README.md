@@ -88,6 +88,12 @@ Local server runs at: `http://localhost:8080`
 - [x] Pre-commit linting with ESLint, Prettier, and Husky
 - [x] Local dev environment with Docker using the provided LARVIS backend
 
+Below is a breakdown of the main dashboard visualizations:
+
+📅 Weekly Average Ore Sites – Shows the average number of ore sites detected per acquisition grouped by week. Helps track long-term mission trends. (WeeklySitesChart)
+
+📊 Ore Site Count Distribution – A histogram showing how many acquisitions fall into site-count ranges (e.g. 0–4, 5–9). Helps visualize how common low- vs. high-yield scans are. (SiteDistributionChart)
+
 ---
 
 ## 🧪 Testing
