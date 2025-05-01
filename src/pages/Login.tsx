@@ -1,14 +1,14 @@
 import React from "react";
 import { useNavigate, Navigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Button, Form, Input, message, Typography } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, Form, Input, Typography } from "antd";
 import type { FormProps } from "antd";
-import { useSelector } from "react-redux";
 import { ThunderboltOutlined, RocketOutlined } from "@ant-design/icons";
 
 import { login } from "../api/auth";
 import { setCredentials } from "../store/authSlice";
 import { RootState } from "../store";
+import { showToast } from "../store/toastSlice";
 
 const { Title, Paragraph } = Typography;
 
@@ -20,7 +20,6 @@ type LoginFormValues = {
 const LoginPage: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
 
   if (isAuthenticated) {
@@ -31,10 +30,10 @@ const LoginPage: React.FC = () => {
     try {
       const res = await login({ user_id: values.user_id, password: values.password });
       dispatch(setCredentials({ token: res.access, userId: values.user_id }));
-      message.success("Logged in successfully");
+      dispatch(showToast({ type: "success", content: "Logged in successfully" }));
       navigate("/dashboard");
     } catch {
-      message.error("Login failed: Invalid credentials");
+      dispatch(showToast({ type: "error", content: "Login failed: Invalid credentials" }));
     }
   };
 

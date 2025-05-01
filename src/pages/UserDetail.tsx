@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Typography, Card, Form, Input, Button, message } from "antd";
-import { useSelector } from "react-redux";
+import { Typography, Card, Form, Input, Button } from "antd";
+import { useSelector, useDispatch } from "react-redux";
 
 import { fetchUserById } from "../api/users";
 import api from "../api/axios";
 import { RootState } from "../store";
+import { showToast } from "../store/toastSlice";
 
 const { Title } = Typography;
 
@@ -15,6 +16,7 @@ type FormValues = {
 };
 
 const UserDetailPage = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(true);
@@ -28,22 +30,22 @@ const UserDetailPage = () => {
         form.setFieldsValue(user);
         setEditable(user.user_id === currentUser);
       } catch {
-        message.error("Failed to load user data");
+        dispatch(showToast({ type: "info", content: "Failed to load user data" }));
       } finally {
         setLoading(false);
       }
     };
 
     loadUser();
-  }, [id, currentUser, form]);
+  }, [id, currentUser, form, dispatch]);
 
   const handleSubmit = async (values: FormValues) => {
     try {
       const res = await api.post(`/users/${id}`, values);
       form.setFieldsValue(res.data);
-      message.success("Profile updated successfully");
+      dispatch(showToast({ type: "success", content: "Profile updated successfully" }));
     } catch {
-      message.error("Failed to update profile");
+      dispatch(showToast({ type: "error", content: "Failed to update profile" }));
     }
   };
 
