@@ -22,7 +22,7 @@ const App = () => {
       >
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="users" element={<UsersPage />} />
-        <Route path="/users/:id" element={<UserDetailPage />} />
+        <Route path="users/:id" element={<UserDetailPage />} />
         <Route index element={<Navigate to="/dashboard" />} />
       </Route>
 
