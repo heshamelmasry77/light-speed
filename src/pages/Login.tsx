@@ -8,7 +8,7 @@ import { ThunderboltOutlined, RocketOutlined } from "@ant-design/icons";
 import { login } from "../api/auth";
 import { setCredentials } from "../store/authSlice";
 import { RootState } from "../store";
-import { showToast } from "../store/toastSlice.ts";
+import { showToast } from "../store/toastSlice";
 
 const { Title, Paragraph } = Typography;
 
