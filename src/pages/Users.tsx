@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { fetchUsers, User } from "../api/users";
-import { showToast } from "../store/toastSlice.ts";
+import { showToast } from "../store/toastSlice";
 
 const { Title } = Typography;
 
