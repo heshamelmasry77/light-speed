@@ -70,6 +70,7 @@ const AppHeader = () => {
         {/* Mobile menu button */}
         <div className="md:hidden">
           <Button
+            aria-label="Open menu"
             type="text"
             icon={<MenuOutlined style={{ color: "#000" }} />}
             onClick={() => setMenuOpen(true)}
@@ -81,6 +82,7 @@ const AppHeader = () => {
       {menuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex flex-col items-center justify-center text-white text-lg space-y-6">
           <Button
+            aria-label="Close menu"
             type="text"
             icon={<CloseOutlined />}
             onClick={() => setMenuOpen(false)}
