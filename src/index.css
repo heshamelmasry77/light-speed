@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @theme {
   --color-brand-primary: #7c3aed;
   --color-brand-primary-light: #8b5cf6;
@@ -81,4 +82,18 @@
 
 .thunderbolt-zap {
   animation: lightning-flash 1.2s ease-in-out infinite;
+}
+
+.theme-toggle {
+  transition:
+    transform 0.4s ease,
+    color 0.4s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg);
+}
+
+.ant-btn-variant-text:not(:disabled):not(.ant-btn-disabled):hover {
+  background-color: transparent;
 }

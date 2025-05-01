@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { message } from "antd";
+import { ConfigProvider, theme } from "antd";
 
 import LoginPage from "./pages/Login";
 import DashboardPage from "./pages/Dashboard";
@@ -14,6 +15,8 @@ import { RootState } from "./store";
 import { clearToast } from "./store/toastSlice";
 
 const App = () => {
+  const isDark = useSelector((state: RootState) => state.theme.darkMode);
+
   const [messageApi, contextHolder] = message.useMessage();
   const toast = useSelector((state: RootState) => state.toast);
   const dispatch = useDispatch();
@@ -28,27 +31,33 @@ const App = () => {
   }, [toast, dispatch, messageApi]);
   return (
     <>
-      {contextHolder}
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
+      <ConfigProvider
+        theme={{
+          algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+        }}
+      >
+        {contextHolder}
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
 
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <MainLayout />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="dashboard" element={<DashboardPage />} />
-          <Route path="acquisitions" element={<AcquisitionsPage />} />
-          <Route path="users" element={<UsersPage />} />
-          <Route path="users/:id" element={<UserDetailPage />} />
-          <Route index element={<Navigate to="/dashboard" />} />
-        </Route>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <MainLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="dashboard" element={<DashboardPage />} />
+            <Route path="acquisitions" element={<AcquisitionsPage />} />
+            <Route path="users" element={<UsersPage />} />
+            <Route path="users/:id" element={<UserDetailPage />} />
+            <Route index element={<Navigate to="/dashboard" />} />
+          </Route>
 
-        <Route path="*" element={<div>404 - Not Found</div>} />
-      </Routes>
+          <Route path="*" element={<div>404 - Not Found</div>} />
+        </Routes>
+      </ConfigProvider>
     </>
   );
 };

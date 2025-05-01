@@ -38,7 +38,7 @@ const Dashboard = () => {
         <Spin />
       ) : (
         <>
-          <Row gutter={[16, 16]} className="mt-8">
+          <Row gutter={[16, 16]} className="my-8">
             <Col xs={24} sm={12} lg={8}>
               <Card title="Total Acquisitions">
                 <Title level={3}>{data.length}</Title>
