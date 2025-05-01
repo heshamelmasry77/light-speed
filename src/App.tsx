@@ -1,8 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import LoginPage from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import Users from "./pages/Users";
+import DashboardPage from "./pages/Dashboard";
+import UsersPage from "./pages/Users";
+import UserDetailPage from "./pages/UserDetail.tsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 import MainLayout from "./components/MainLayout";
 
@@ -19,8 +20,9 @@ const App = () => {
           </ProtectedRoute>
         }
       >
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="users" element={<Users />} />
+        <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="users" element={<UsersPage />} />
+        <Route path="users/:id" element={<UserDetailPage />} />
         <Route index element={<Navigate to="/dashboard" />} />
       </Route>
 
