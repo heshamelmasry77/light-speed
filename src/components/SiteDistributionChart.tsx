@@ -39,7 +39,7 @@ const SiteDistributionChart = ({ data }: Props) => {
     yField: "count", // number of acquisitions in that range
     height: 300,
     label: { text: "count" }, // label each bar with the count
-    color: "var(--brand-accent)", // use brand color for bars, but it doesn't work sadly :(
+    color: "var(--brand-accent)", // Attempts to use the brand color for bars, but this variable is not rendering as expected. Further investigation is needed to determine the cause.
   };
 
   return <Column {...config} />;
