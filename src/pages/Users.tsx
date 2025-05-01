@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { Table, Typography, Spin, message } from "antd";
+import { Table, Typography, Spin } from "antd";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { fetchUsers, User } from "../api/users";
+import { showToast } from "../store/toastSlice.ts";
 
 const { Title } = Typography;
 
@@ -10,6 +12,7 @@ const UsersPage = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const loadUsers = async () => {
@@ -17,14 +20,14 @@ const UsersPage = () => {
         const res = await fetchUsers();
         setUsers(res);
       } catch {
-        message.error("Failed to load users");
+        dispatch(showToast({ type: "error", content: "Failed to load users" }));
       } finally {
         setLoading(false);
       }
     };
 
     loadUsers();
-  }, []);
+  }, [dispatch]);
 
   const columns = [
     {
