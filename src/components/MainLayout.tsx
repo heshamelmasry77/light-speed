@@ -66,7 +66,7 @@ const MainLayout = () => {
         collapsible
         collapsed={collapsed}
         onCollapse={setCollapsed}
-        className="p-4"
+        className="p-4 hidden md:block"
       >
         <Menu
           mode="inline"
