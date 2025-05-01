@@ -24,6 +24,7 @@ const AppHeader = () => {
         <img
           src={logo}
           alt="Light Speed Logo"
+          className="rocket-bounce rocket-hover cursor-pointer"
           style={{
             height: 44,
             width: 44,

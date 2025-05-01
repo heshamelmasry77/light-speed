@@ -1,7 +1,12 @@
 import { Layout, Menu } from "antd";
 import { Link, useNavigate, Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { DashboardOutlined, UserOutlined, LogoutOutlined } from "@ant-design/icons";
+import {
+  DashboardOutlined,
+  UserOutlined,
+  LogoutOutlined,
+  BarChartOutlined,
+} from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { useState } from "react";
 
@@ -33,6 +38,11 @@ const MainLayout = () => {
       label: <Link to="/users">Users</Link>,
       key: "users",
       icon: <UserOutlined />,
+    },
+    {
+      label: <Link to="/acquisitions">Acquisitions</Link>,
+      key: "acquisitions",
+      icon: <BarChartOutlined />,
     },
     {
       type: "divider",

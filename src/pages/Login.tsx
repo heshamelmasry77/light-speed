@@ -41,9 +41,12 @@ const LoginPage: React.FC = () => {
     <div className="flex flex-col items-center justify-center min-h-screen px-4">
       <div className="text-center mb-8">
         <Title level={1} className="flex items-center justify-center gap-3 text-brand-primary">
-          <RocketOutlined />
+          <RocketOutlined className="rocket-bounce rocket-hover cursor-pointer" />
           Light Speed
-          <ThunderboltOutlined />
+          <ThunderboltOutlined
+            className="thunderbolt-zap"
+            style={{ fontSize: 20, marginLeft: 4 }}
+          />
         </Title>
 
         <Paragraph type="secondary" className="max-w-md mx-auto mt-4">
