@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchUserById } from "../api/users";
 import api from "../api/axios";
 import { RootState } from "../store";
-import { showToast } from "../store/toastSlice.ts";
+import { showToast } from "../store/toastSlice";
 
 const { Title } = Typography;
 
