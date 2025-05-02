@@ -6,6 +6,7 @@ import { fetchAcquisitions } from "../api/acquisitions";
 import AcquisitionsChart from "../components/AcquisitionsChart";
 import { RootState } from "../store";
 import { setAcquisitions, setLoading, setError } from "../store/acquisitionsSlice";
+import { hideLoader, showLoader } from "../store/loadingSlice.ts";
 
 const { Title } = Typography;
 
@@ -16,6 +17,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const loadData = async () => {
+      dispatch(showLoader());
       dispatch(setLoading(true));
       try {
         const res = await fetchAcquisitions();
@@ -23,6 +25,8 @@ const Dashboard = () => {
       } catch {
         dispatch(setError("Failed to load acquisitions"));
         message.error("Failed to load acquisitions");
+      } finally {
+        dispatch(hideLoader());
       }
     };
 

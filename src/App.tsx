@@ -13,6 +13,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import MainLayout from "./components/MainLayout";
 import { RootState } from "./store";
 import { clearToast } from "./store/toastSlice";
+import GlobalLoader from "./components/GlobalLoader";
 
 const App = () => {
   const isDark = useSelector((state: RootState) => state.theme.darkMode);
@@ -37,6 +38,7 @@ const App = () => {
         }}
       >
         {contextHolder}
+        <GlobalLoader />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
 

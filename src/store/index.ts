@@ -4,6 +4,7 @@ import authReducer from "./authSlice";
 import acquisitionsReducer from "./acquisitionsSlice";
 import toastReducer from "./toastSlice";
 import themeReducer from "./themeSlice";
+import loadingReducer from "./loadingSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     acquisitions: acquisitionsReducer,
     toast: toastReducer,
     theme: themeReducer,
+    loading: loadingReducer,
   },
 });
 
