@@ -148,4 +148,3 @@ npm run dev
 - [ ] Add API improvement suggestions section in README
 
 ---
-

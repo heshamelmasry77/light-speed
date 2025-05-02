@@ -9,6 +9,7 @@ import { login } from "../api/auth";
 import { setCredentials } from "../store/authSlice";
 import { RootState } from "../store";
 import { showToast } from "../store/toastSlice";
+import { showLoader, hideLoader } from "../store/loadingSlice";
 
 const { Title, Paragraph } = Typography;
 
@@ -27,6 +28,8 @@ const LoginPage: React.FC = () => {
   }
 
   const onFinish: FormProps<LoginFormValues>["onFinish"] = async values => {
+    dispatch(showLoader());
+
     try {
       const res = await login({ user_id: values.user_id, password: values.password });
       dispatch(setCredentials({ token: res.access, userId: values.user_id }));
@@ -34,6 +37,8 @@ const LoginPage: React.FC = () => {
       navigate("/dashboard");
     } catch {
       dispatch(showToast({ type: "error", content: "Login failed: Invalid credentials" }));
+    } finally {
+      dispatch(hideLoader());
     }
   };
 
@@ -79,7 +84,12 @@ const LoginPage: React.FC = () => {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
+        <Form.Item
+          wrapperCol={{
+            xs: { span: 24, offset: 0 },
+            sm: { span: 16, offset: 6 },
+          }}
+        >
           <Button
             type="primary"
             htmlType="submit"

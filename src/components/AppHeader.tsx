@@ -4,10 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { SunOutlined, MoonOutlined, MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import { LogoutOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
-import { toggleDarkMode } from "../store/themeSlice";
+import { showToast } from "../store/toastSlice";
+import { toggleDarkMode, setLightMode } from "../store/themeSlice";
 import { RootState } from "../store";
 import logo from "../assets/logo.png";
+import { logout } from "../store/authSlice";
 
 const { Header } = Layout;
 
@@ -15,6 +19,7 @@ const AppHeader = () => {
   const userId = useSelector((state: RootState) => state.auth.userId);
   const isDark = useSelector((state: RootState) => state.theme.darkMode);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -88,6 +93,7 @@ const AppHeader = () => {
             onClick={() => setMenuOpen(false)}
             style={{ position: "absolute", top: 16, right: 16, fontSize: 24, color: "#fff" }}
           />
+
           <Link to="/dashboard" onClick={() => setMenuOpen(false)}>
             Dashboard
           </Link>
@@ -97,9 +103,11 @@ const AppHeader = () => {
           <Link to="/acquisitions" onClick={() => setMenuOpen(false)}>
             Acquisitions
           </Link>
+
           <div>
             Welcome, <strong>{userId}</strong>
           </div>
+
           <Button
             type="text"
             onClick={() => {
@@ -110,6 +118,23 @@ const AppHeader = () => {
             style={{ color: "#fff", fontSize: 20 }}
           >
             {isDark ? "Light Mode" : "Dark Mode"}
+          </Button>
+
+          <Button
+            type="text"
+            onClick={() => {
+              if (isDark) {
+                dispatch(setLightMode());
+              }
+              dispatch(showToast({ type: "info", content: "Logged out" }));
+              dispatch(logout());
+              navigate("/login");
+              setMenuOpen(false);
+            }}
+            icon={<LogoutOutlined />}
+            style={{ color: "#fff", fontSize: 20 }}
+          >
+            Logout
           </Button>
         </div>
       )}

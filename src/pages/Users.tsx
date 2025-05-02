@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { fetchUsers, User } from "../api/users";
 import { showToast } from "../store/toastSlice";
+import { showLoader, hideLoader } from "../store/loadingSlice.ts";
 
 const { Title } = Typography;
 
@@ -16,12 +17,14 @@ const UsersPage = () => {
 
   useEffect(() => {
     const loadUsers = async () => {
+      dispatch(showLoader());
       try {
         const res = await fetchUsers();
         setUsers(res);
       } catch {
         dispatch(showToast({ type: "error", content: "Failed to load users" }));
       } finally {
+        dispatch(hideLoader());
         setLoading(false);
       }
     };

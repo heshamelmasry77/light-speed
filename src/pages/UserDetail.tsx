@@ -7,6 +7,7 @@ import { fetchUserById } from "../api/users";
 import api from "../api/axios";
 import { RootState } from "../store";
 import { showToast } from "../store/toastSlice";
+import { hideLoader, showLoader } from "../store/loadingSlice.ts";
 
 const { Title } = Typography;
 
@@ -25,6 +26,8 @@ const UserDetailPage = () => {
 
   useEffect(() => {
     const loadUser = async () => {
+      dispatch(showLoader());
+
       try {
         const user = await fetchUserById(id!);
         form.setFieldsValue(user);
@@ -32,6 +35,7 @@ const UserDetailPage = () => {
       } catch {
         dispatch(showToast({ type: "info", content: "Failed to load user data" }));
       } finally {
+        dispatch(hideLoader());
         setLoading(false);
       }
     };

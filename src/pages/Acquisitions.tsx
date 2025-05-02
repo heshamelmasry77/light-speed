@@ -7,6 +7,7 @@ import { setAcquisitions, setLoading, setError } from "../store/acquisitionsSlic
 import { RootState } from "../store";
 import WeeklySitesChart from "../components/WeeklySitesChart";
 import SiteDistributionChart from "../components/SiteDistributionChart";
+import { hideLoader, showLoader } from "../store/loadingSlice.ts";
 
 const { Title } = Typography;
 
@@ -16,12 +17,15 @@ const AcquisitionsPage = () => {
 
   useEffect(() => {
     const loadData = async () => {
+      dispatch(showLoader());
       dispatch(setLoading(true));
       try {
         const res = await fetchAcquisitions();
         dispatch(setAcquisitions(res));
       } catch {
         dispatch(setError("Failed to load acquisitions"));
+      } finally {
+        dispatch(hideLoader());
       }
     };
 
