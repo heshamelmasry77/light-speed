@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Card, Col, Row, Typography, Spin, message } from "antd";
 
 import { fetchAcquisitions } from "../api/acquisitions";
-import AcquisitionsChart from "../components/AcquisitionsChart";
+import AcquisitionsChart from "../components/charts/AcquisitionsChart";
 import { RootState } from "../store";
 import { setAcquisitions, setLoading, setError } from "../store/acquisitionsSlice";
 import { hideLoader, showLoader } from "../store/loadingSlice.ts";

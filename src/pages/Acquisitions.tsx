@@ -5,8 +5,8 @@ import { Typography, Spin, Card } from "antd";
 import { fetchAcquisitions } from "../api/acquisitions";
 import { setAcquisitions, setLoading, setError } from "../store/acquisitionsSlice";
 import { RootState } from "../store";
-import WeeklySitesChart from "../components/WeeklySitesChart";
-import SiteDistributionChart from "../components/SiteDistributionChart";
+import WeeklySitesChart from "../components/charts/WeeklySitesChart";
+import SiteDistributionChart from "../components/charts/SiteDistributionChart";
 import { hideLoader, showLoader } from "../store/loadingSlice.ts";
 
 const { Title } = Typography;
@@ -40,13 +40,16 @@ const AcquisitionsPage = () => {
         <Spin />
       ) : (
         <>
-          <Card title="Weekly Average Sites" className="mb-6">
-            <WeeklySitesChart data={data} />
-          </Card>
-
-          <Card title="Ore Site Distribution" className="mb-6">
-            <SiteDistributionChart data={data} />
-          </Card>
+          <div className="mb-6">
+            <Card title="Weekly Average Sites">
+              <WeeklySitesChart data={data} />
+            </Card>
+          </div>
+          <div className="my-6">
+            <Card title="Ore Site Distribution">
+              <SiteDistributionChart data={data} />
+            </Card>
+          </div>
         </>
       )}
     </div>

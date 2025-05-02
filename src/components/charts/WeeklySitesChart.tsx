@@ -1,7 +1,7 @@
 import { Column } from "@ant-design/plots";
 import { startOfWeek, format } from "date-fns";
 
-import { Acquisition } from "../api/acquisitions";
+import { Acquisition } from "../../api/acquisitions";
 
 type Props = {
   data: Acquisition[];
@@ -41,7 +41,7 @@ const WeeklySitesChart = ({ data }: Props) => {
     xField: "week", // x-axis: the start of each week
     yField: "avg_sites", // y-axis: average ore sites detected that week
     height: 300,
-    label: { text: "Average Sites" },
+    label: { text: "Average" },
     color: "#7c3aed", // Purple brand color
   };
 
