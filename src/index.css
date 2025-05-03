@@ -97,3 +97,22 @@
 .ant-btn-variant-text:not(:disabled):not(.ant-btn-disabled):hover {
   background-color: transparent;
 }
+
+@keyframes mars-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.planet-spin {
+  animation: mars-spin 60s linear infinite;
+  animation-play-state: running;
+  transform-origin: center center;
+}
+
+/* Pause on hover */
+.planet-spin:hover {
+  animation-play-state: paused;
+}

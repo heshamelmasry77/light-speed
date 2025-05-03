@@ -46,14 +46,13 @@ const generateSiteFromAcquisition = (acq: Acquisition, index: number): OreSite =
 };
 
 const MarsOreMap = ({ acquisitions }: Props) => {
-  console.log(acquisitions);
   const [selectedSite, setSelectedSite] = useState<OreSite | null>(null);
 
   // Convert acquisitions into displayable ore sites
   const allSites = acquisitions.map((acq, i) => generateSiteFromAcquisition(acq, i));
   return (
     <div
-      className="w-96 h-96 rounded-full relative overflow-hidden shadow-lg"
+      className="w-96 h-96 rounded-full relative overflow-hidden shadow-xl planet-spin"
       style={{
         backgroundImage: "url(/mars.png)",
         backgroundSize: "cover",
@@ -63,7 +62,7 @@ const MarsOreMap = ({ acquisitions }: Props) => {
       {allSites.map(site => (
         <div
           key={site.id}
-          className="absolute w-1 h-1 bg-white rounded-full cursor-pointer animate-[pulse_0.8s_ease-in-out]"
+          className="absolute cursor-pointer group"
           style={{
             top: `${site.y}%`,
             left: `${site.x}%`,
@@ -71,7 +70,12 @@ const MarsOreMap = ({ acquisitions }: Props) => {
           }}
           onClick={() => setSelectedSite(site)}
           title={`Ore Site ${site.id}`}
-        />
+        >
+          {/* Outer “ping” circle */}
+          <span className="absolute block w-2 h-2 rounded-full opacity-60 animate-ping group-hover:animate-none bg-gray-500" />
+          {/* Inner solid dot */}
+          <span className="absolute block w-1 h-1 rounded-full inset-0 m-auto bg-white" />
+        </div>
       ))}
 
       <Modal
