@@ -4,6 +4,7 @@ import { Card, Col, Row, Typography, Spin, message } from "antd";
 
 import { fetchAcquisitions } from "../api/acquisitions";
 import AcquisitionsChart from "../components/charts/AcquisitionsChart";
+import MarsOreMap from "../components/MarsOreMap";
 import { RootState } from "../store";
 import { setAcquisitions, setLoading, setError } from "../store/acquisitionsSlice";
 import { hideLoader, showLoader } from "../store/loadingSlice.ts";
@@ -54,6 +55,11 @@ const Dashboard = () => {
               </Card>
             </Col>
           </Row>
+          <Card title="Ore Site Scan Map" className="mt-6">
+            <div className="flex justify-center">
+              <MarsOreMap acquisitions={data} />
+            </div>
+          </Card>
 
           <Card title="Ore Sites Detected Over Time" className="mt-8">
             <AcquisitionsChart data={data} />
