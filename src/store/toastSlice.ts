@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type ToastType = "success" | "error" | "info" | "warning";
 
-type ToastPayload = {
+export type ToastPayload = {
   type: ToastType;
   content: string;
 };
