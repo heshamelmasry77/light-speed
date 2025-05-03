@@ -2,7 +2,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type ToastType = "success" | "error" | "info" | "warning";
 
-type ToastPayload = {
+// ToastPayload represents the data structure for a toast notification.
+// - `type`: Specifies the type of the toast (e.g., success, error, info, warning).
+// - `content`: The message or content to be displayed in the toast.
+export type ToastPayload = {
   type: ToastType;
   content: string;
 };
