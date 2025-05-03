@@ -47,15 +47,6 @@ const MainLayout = () => {
     {
       type: "divider",
     },
-    {
-      label: (
-        <button onClick={handleLogout} className="text-red-400 hover:text-red-300 cursor-pointer">
-          Logout
-        </button>
-      ),
-      key: "logout",
-      icon: <LogoutOutlined />,
-    },
   ];
 
   return (
@@ -66,19 +57,31 @@ const MainLayout = () => {
         collapsible
         collapsed={collapsed}
         onCollapse={setCollapsed}
-        className="p-4 hidden md:block"
+        className="p-4 hidden md:flex flex-col"
       >
-        <Menu
-          mode="inline"
-          defaultSelectedKeys={["dashboard"]}
-          items={items}
-          theme="dark"
-          style={{
-            height: "100%",
-            borderRight: 0,
-            color: "#fff",
-          }}
-        />
+        <div className="flex-1">
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={["dashboard"]}
+            items={items}
+            theme="dark"
+            style={{
+              borderRight: 0,
+              color: "#fff",
+            }}
+          />
+        </div>
+
+        {/* Logout button styled like a menu item */}
+        <div className="mt-4 px-2">
+          <button
+            onClick={handleLogout}
+            className="w-full text-left text-red-400 hover:text-red-300 flex items-center gap-2 px-5 py-2 rounded-lg hover:bg-white/10 transition cursor-pointer"
+          >
+            <LogoutOutlined />
+            <span className={collapsed ? "hidden" : "inline"}>Logout</span>
+          </button>
+        </div>
       </Sider>
 
       <Layout>

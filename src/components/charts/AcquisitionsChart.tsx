@@ -1,6 +1,6 @@
 import { Column } from "@ant-design/plots";
 
-import { Acquisition } from "../api/acquisitions";
+import { Acquisition } from "../../api/acquisitions";
 
 type Props = {
   data: Acquisition[];
