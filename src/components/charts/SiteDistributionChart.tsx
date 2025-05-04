@@ -42,7 +42,7 @@ const SiteDistributionChart = ({ data }: Props) => {
     color: "var(--brand-accent)", // Attempts to use the brand color for bars, but this variable is not rendering as expected. Further investigation is needed to determine the cause.
   };
 
-  return <Column {...config} />;
+  return <Column {...config} data-testid="dist-chart" />;
 };
 
 export default SiteDistributionChart;

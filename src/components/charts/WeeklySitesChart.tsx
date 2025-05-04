@@ -45,7 +45,7 @@ const WeeklySitesChart = ({ data }: Props) => {
     color: "#7c3aed", // Purple brand color
   };
 
-  return <Column {...config} />;
+  return <Column {...config} data-testid="weekly-chart" />;
 };
 
 export default WeeklySitesChart;
