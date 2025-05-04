@@ -52,7 +52,7 @@ const MarsOreMap = ({ acquisitions }: Props) => {
   const allSites = acquisitions.map((acq, i) => generateSiteFromAcquisition(acq, i));
   return (
     <div
-      className="w-96 h-96 rounded-full relative overflow-hidden md:shadow-xl planet-spin bg-contain md:bg-cover bg-no-repeat"
+      className="w-full md:w-96 h-96 rounded-full relative overflow-hidden md:shadow-xl planet-spin bg-contain md:bg-cover bg-no-repeat"
       style={{
         backgroundImage: "url(/mars.png)",
         backgroundPosition: "center",

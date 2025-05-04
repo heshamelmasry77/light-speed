@@ -55,7 +55,7 @@ const Dashboard = () => {
               </Card>
             </Col>
           </Row>
-          <Card title="Ore Site Scan Map" className="mt-6">
+          <Card title="Ore Site Scan Map" className="mt-6 overflow-hidden">
             <div className="flex justify-center">
               <MarsOreMap acquisitions={data} />
             </div>
