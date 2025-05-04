@@ -38,8 +38,8 @@ describe("UsersPage", () => {
 
     // Table rows appear after data loads
     await waitFor(() => {
-      expect(screen.getByText("Alice Mars")).toBeInTheDocument();
-      expect(screen.getByText("Bob Rocket")).toBeInTheDocument();
+      expect(screen.getByText("Alice")).toBeInTheDocument();
+      expect(screen.getByText("Bob")).toBeInTheDocument();
     });
 
     // Optional: Check table headers
