@@ -44,7 +44,7 @@ const AcquisitionsChart = ({ data }: Props) => {
     },
   };
 
-  return <Column {...config} />;
+  return <Column {...config} data-testid="acquisitions-chart" />;
 };
 
 export default AcquisitionsChart;
