@@ -17,7 +17,7 @@ describe("UserDetailPage", () => {
   it("renders user form with prefilled data", async () => {
     const mockUser = {
       user_id: "alice",
-      name: "Alice Mars",
+      name: "Alice",
       password: "1234",
     };
 
@@ -41,7 +41,7 @@ describe("UserDetailPage", () => {
 
     // Wait for input values to be set
     await waitFor(() => {
-      expect(screen.getByDisplayValue("Alice Mars")).toBeInTheDocument();
+      expect(screen.getByDisplayValue("Alice")).toBeInTheDocument();
       expect(screen.getByDisplayValue("1234")).toBeInTheDocument();
     });
 

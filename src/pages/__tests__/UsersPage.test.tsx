@@ -16,8 +16,8 @@ describe("UsersPage", () => {
 
   it("renders user table after loading", async () => {
     const mockUsers = [
-      { user_id: "alice", name: "Alice Mars" },
-      { user_id: "bob", name: "Bob Rocket" },
+      { user_id: "alice", name: "Alice" },
+      { user_id: "bob", name: "Bob" },
     ];
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
