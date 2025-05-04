@@ -55,7 +55,7 @@ src/
 
 ## 🔗 Live Deployment
 
-- 🔥 Frontend: [[https://light-speed-b67diijas-hesham-masrys-projects.vercel.app](https://light-speed-gules.vercel.app/)]([https://light-speed-b67diijas-hesham-masrys-projects.vercel.app](https://light-speed-gules.vercel.app/))
+- 🔥 Frontend: [https://light-speed-gules.vercel.app/](https://light-speed-gules.vercel.app/)
 - 🌐 Backend API: [https://light-speed-be.onrender.com](https://light-speed-be.onrender.com)
 
 ## 🔑 API Usage
